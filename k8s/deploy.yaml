@@ -16,14 +16,16 @@ spec:
     spec:
       containers:
         - name: console-project
-          image: ghcr.io/${IMAGE_NAME}:main
+          image: $FULL_IMAGE_WITH_TAG
           imagePullPolicy: Always
           resources:
             limits:
-              cpu: 100m
-              memory: 1023Mi
+              cpu: 2000m
+              memory: 512Mi
             requests:
-              cpu: 100m
-              memory: 1023Mi
+              cpu: 2000m
+              memory: 512Mi
           ports:
             - containerPort: 80
+      imagePullSecrets:
+        - name: regcred
